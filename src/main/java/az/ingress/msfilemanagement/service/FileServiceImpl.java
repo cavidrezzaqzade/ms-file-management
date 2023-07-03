@@ -15,7 +15,7 @@ public class FileServiceImpl implements FileService {
     @Override
     public String uploadImage(MultipartFile[] files, InformationDto info) {
         Arrays.stream(files).forEach(file -> System.out.println(file.getOriginalFilename()));
-        System.out.println("info: " + info);
+        System.out.println("info: " + info.getInformation());
         return "ok";
     }
 
