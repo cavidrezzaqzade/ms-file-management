@@ -26,10 +26,15 @@ public class FileController {
     @PostMapping
     @Operation(summary = "upload files", description = "upload files", tags = {"File"})
     public ResponseEntity<?> uploadImage(@RequestPart("files") MultipartFile[] file, @RequestPart("info") InformationDto info){
-        System.out.println("abcde");
         String uploadImage = service.uploadImage(file, info);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(uploadImage);
+    }
+
+    @GetMapping
+    @Operation(summary = "get information", description = "get information ", tags = {"File"})
+    public String getInfo(InformationDto info){
+        return service.getInformation(info);
     }
 
 }

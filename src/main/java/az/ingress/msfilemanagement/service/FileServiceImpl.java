@@ -19,4 +19,8 @@ public class FileServiceImpl implements FileService {
         return "ok";
     }
 
+    @Override
+    public String getInformation(InformationDto dto) {
+        return dto.getInformation();
+    }
 }
