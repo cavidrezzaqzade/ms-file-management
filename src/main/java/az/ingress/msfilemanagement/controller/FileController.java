@@ -31,9 +31,12 @@ public class FileController {
                 .body(uploadImage);
     }
 
-    @GetMapping
+    @GetMapping("/{info}")
     @Operation(summary = "get information", description = "get information ", tags = {"File"})
-    public String getInfo(InformationDto info){
+    @ResponseStatus(HttpStatus.OK)
+    public String getInfo(@PathVariable(name = "info") String info){
+        if(true)
+            throw new RuntimeException("feign test exception was thrown");
         return service.getInformation(info);
     }
 

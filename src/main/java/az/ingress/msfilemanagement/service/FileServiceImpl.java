@@ -20,7 +20,7 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public String getInformation(InformationDto dto) {
-        return dto.getInformation();
+    public String getInformation(String info) {
+        return info;
     }
 }
