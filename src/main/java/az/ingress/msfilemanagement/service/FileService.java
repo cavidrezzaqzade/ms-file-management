@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface FileService {
 
-    String uploadImage(MultipartFile[] files, InformationDto info);
+    String uploadImage(MultipartFile files, InformationDto info);
     String getInformation(String info);
 
 }

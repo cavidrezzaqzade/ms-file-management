@@ -13,10 +13,10 @@ import java.util.Arrays;
 public class FileServiceImpl implements FileService {
 
     @Override
-    public String uploadImage(MultipartFile[] files, InformationDto info) {
-        Arrays.stream(files).forEach(file -> System.out.println(file.getOriginalFilename()));
+    public String uploadImage(MultipartFile file, InformationDto info) {
+        System.out.println(file.getOriginalFilename());
         System.out.println("info: " + info.getInformation());
-        return "ok";
+        return file.getOriginalFilename() + " : " + info.getInformation();
     }
 
     @Override

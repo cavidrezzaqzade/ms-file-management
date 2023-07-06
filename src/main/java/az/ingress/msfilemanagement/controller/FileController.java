@@ -23,20 +23,18 @@ public class FileController {
 
     private final FileService service;
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Operation(summary = "upload files", description = "upload files", tags = {"File"})
-    public ResponseEntity<?> uploadImage(@RequestPart("files") MultipartFile[] file, @RequestPart("info") InformationDto info){
-        String uploadImage = service.uploadImage(file, info);
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(uploadImage);
+    public String uploadImage(@RequestPart("file") MultipartFile file, @RequestPart("info") InformationDto info){
+        return service.uploadImage(file, info);
     }
 
     @GetMapping("/{info}")
     @Operation(summary = "get information", description = "get information ", tags = {"File"})
     @ResponseStatus(HttpStatus.OK)
     public String getInfo(@PathVariable(name = "info") String info){
-        if(true)
-            throw new RuntimeException("feign test exception was thrown");
+//        if(true)
+//            throw new RuntimeException("feign test exception was thrown");
         return service.getInformation(info);
     }
 
